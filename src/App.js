@@ -1,45 +1,48 @@
 import React from "react";
-import { connect } from "react-redux";
-import { getTweetsActionCreator } from "./redux/actions/tweetAction";
+import { Switch, Route } from "react-router-dom";
+import { HomeLayout } from "./layouts";
+import { HomePage, TweetPage, CreateTweetPage } from "./pages";
 
-class App extends React.Component {
-  componentDidMount() {
-    const { page, limit } = this.props.data;
-    this.props.getTweets({ page, limit });
-  }
+const App = () => {
+  return (
+    <React.Fragment>
+      <Switch>
+        <Route exact path='/' component={Home} />
+        <Route exact path='/tweet/:tweetid' component={Tweet} />
+        <Route exact path='/createtweet' component={Create} />
 
-  loadMore = () => {
-    const { page, limit } = this.props.data;
-    this.props.getTweets({ paged: page + 1, limit });
-  };
+        <Route component={NotFound} />
+      </Switch>
+    </React.Fragment>
+  );
+};
 
-  render() {
-    if (this.props.data.isFetch) {
-      return <h1>Loading.....</h1>;
-    }
-    if (this.props.data.error != null) {
-      return <h1>Error.......{this.props.data.error}</h1>;
-    }
-    return (
-      <div className='App'>
-        <h1>hello world</h1>
-        {this.props.data.tweets.map((tweet, i) => {
-          return (
-            <div key={i} style={{ display: "flex" }}>
-              <div style={{ flex: 1 }}>{i + 1}</div>
-              <div style={{ flex: 1 }}>{tweet.id}</div>
-            </div>
-          );
-        })}
-        <button onClick={this.loadMore}>More ....</button>
-      </div>
-    );
-  }
-}
+const NotFound = () => {
+  return <h1>Url Not Found</h1>;
+};
 
-export default connect(
-  state => ({ data: state.tweetReducer }),
-  dispatch => ({
-    getTweets: payload => dispatch(getTweetsActionCreator(payload))
-  })
-)(App);
+const Home = () => {
+  return (
+    <HomeLayout>
+      <HomePage />
+    </HomeLayout>
+  );
+};
+
+const Tweet = () => {
+  return (
+    <HomeLayout>
+      <TweetPage />
+    </HomeLayout>
+  );
+};
+
+const Create = () => {
+  return (
+    <HomeLayout>
+      <CreateTweetPage />
+    </HomeLayout>
+  );
+};
+
+export default App;
