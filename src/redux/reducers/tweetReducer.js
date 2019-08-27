@@ -17,8 +17,8 @@ const tweetReducer = (state = initialState, action) => {
     case FETCH_TWEETS:
       return {
         ...state,
-        isFetch: action.payload.page === 1 ? true : false,
-        page: action.payload.page,
+        isFetch: action.payload.paged === 1 ? true : false,
+        page: action.payload.paged,
         error: null
       };
     case RESPONSE_TWEETS:

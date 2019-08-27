@@ -19,7 +19,7 @@ export const getTweetsActionCreator = payload => dispatch => {
   dispatch(fetchTweetActionType(payload));
   axios
     .get(
-      `http://13.232.242.50:33138/tweets?_page=${payload.page}&_limit=${payload.limit}`
+      `http://13.232.242.50:33138/tweets?_page=${payload.paged}&_limit=${payload.limit}`
     )
     .then(res => {
       dispatch(responseTweetActionType(res.data));

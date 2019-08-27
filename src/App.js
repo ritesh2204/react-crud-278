@@ -10,7 +10,7 @@ class App extends React.Component {
 
   loadMore = () => {
     const { page, limit } = this.props.data;
-    this.props.getTweets({ page: page + 1, limit });
+    this.props.getTweets({ paged: page + 1, limit });
   };
 
   render() {
