@@ -1,4 +1,4 @@
-import HomePage from "./HomePage";
-import TweetPage from "./TweetPage";
-import CreateTweetPage from "./CreateTweetPage";
+import HomePage from "./HomePage/HomePage";
+import TweetPage from "./TweetPage/TweetPage";
+import CreateTweetPage from "./CreateTweetPage/CreateTweetPage";
 export { HomePage, TweetPage, CreateTweetPage };

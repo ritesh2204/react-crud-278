@@ -1,3 +1,5 @@
+import _ from "lodash";
+
 import {
   FETCH_TWEETS,
   RESPONSE_TWEETS,
@@ -22,11 +24,13 @@ const tweetReducer = (state = initialState, action) => {
         error: null
       };
     case RESPONSE_TWEETS:
+      const newTweets = [...action.payload, ...state.tweets];
+      const dataDistinct = _.map(_.keyBy(newTweets, "id"), obj => obj);
       return {
         ...state,
         isFetch: false,
         error: null,
-        tweets: [...state.tweets, ...action.payload]
+        tweets: dataDistinct
       };
     case ERROR_TWEETS:
       return { ...state, error: action.payload, isFetch: false };

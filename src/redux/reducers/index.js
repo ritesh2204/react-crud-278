@@ -1,13 +1,13 @@
 import { combineReducers } from "redux";
 import tweetReducer from "./tweetReducer";
-import userReducer from "./userReducer";
-import individualTweetReducer from "./individualtweetReducer";
 import searchTweetsReducer from "./searchTweetsReducer";
+import createTweetReducer from "../../pages/CreateTweetPage/CreateTweetPageReducer";
+import individualTweetReducer from "../../pages/TweetPage/TweetPageReducer";
 
 const rootReducer = combineReducers({
   tweetReducer,
-  userReducer,
   individualTweetReducer,
+  createTweetReducer,
   searchTweetsReducer
 });
 

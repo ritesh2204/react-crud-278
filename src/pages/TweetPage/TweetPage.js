@@ -1,8 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getIndividualTweetsActionCreator } from "../redux/actions/individualtweetAction";
+import { getIndividualTweetsActionCreator } from "./TweetPageAction";
 import { withRouter } from "react-router-dom";
-import MyLoading from "../components/MyLoading";
 
 class TweetPage extends React.Component {
   componentDidMount() {

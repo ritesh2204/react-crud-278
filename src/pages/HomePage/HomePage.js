@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getTweetsActionCreator } from "../redux/actions/tweetAction";
-import { searchTweetsActionCreator } from "../redux/actions/searchTweetsAction";
+import { getTweetsActionCreator } from "../../redux/actions/tweetAction";
+import { searchTweetsActionCreator } from "../../redux/actions/searchTweetsAction";
 import { Link } from "react-router-dom";
 
 class HomePage extends React.Component {
@@ -34,11 +34,13 @@ class HomePage extends React.Component {
     let renderTweets = [];
     const { tweets } = this.props.data;
     const { searchTweets } = this.props.search;
+
     if (searchTweets.length !== 0) {
       renderTweets = searchTweets;
     } else {
       renderTweets = tweets;
     }
+
     return (
       <div className='App'>
         <h1>Tweets Page</h1>

@@ -1,4 +1,5 @@
 import axios from "axios";
+
 export const FETCH_TWEETS = "FETCH_TWEETS";
 export const RESPONSE_TWEETS = "RESPONSE_TWEETS";
 export const ERROR_TWEETS = "ERROR_TWEETS";
@@ -8,7 +9,7 @@ export const fetchTweetActionType = payload => ({
   payload
 });
 
-const responseTweetActionType = payload => ({
+export const responseTweetActionType = payload => ({
   type: RESPONSE_TWEETS,
   payload
 });

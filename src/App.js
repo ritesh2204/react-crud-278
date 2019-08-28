@@ -10,7 +10,6 @@ const App = () => {
         <Route exact path='/' component={Home} />
         <Route exact path='/tweet/:tweetid' component={Tweet} />
         <Route exact path='/createtweet' component={Create} />
-
         <Route component={NotFound} />
       </Switch>
     </React.Fragment>

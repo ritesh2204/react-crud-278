@@ -2,7 +2,7 @@ import {
   FETCH_INDIVIDUAL_TWEET,
   RESPONSE_INDIVIDUAL_TWEET,
   ERROR_INDIVIDUAL_TWEET
-} from "../actions/individualtweetAction";
+} from "./TweetPageAction";
 
 const initialState = {
   tweet: null,
